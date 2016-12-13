@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.bupt.vouching.mapper.TeachResourceMapper" >
+
+	<!-- 保存一个上传文件 -->
+	<insert id="saveTeachResource" parameterType="TeachResource">
+		insert into 
+		teachresource(trid,path,userid,type,flag)
+		values(#{trid},#{path},#{userId},#{type},#{flag})
+	</insert>
+	
+	<!-- 根据文件路径删除文件 -->		
+	<delete id="deleteResourceByPath" parameterType="string">
+		delete from teachresource
+		where path = #{0}
+	</delete>		
+			
+</mapper>
